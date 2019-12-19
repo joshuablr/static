@@ -22,7 +22,7 @@ pipeline {
     }
     stage("Upload to AWS") {
         steps {
-          withAWS(region:'ap-south-1',credentials:'Jenkins') {
+          withAWS(region:'ap-south-1',credentials:'ti-dev-mumbai-jenkins') {
             s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'index.html', bucket:'devops.me')
            }
         }
