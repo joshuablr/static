@@ -20,5 +20,12 @@ pipeline {
         sh ''' tidy -q -e *.html '''
       }
     }
+    stage("Upload to AWS") {
+        steps {
+          withAWS(region:'ap-south-1',credentials:'Jenkins') {
+            s3Upload(pathStyleAccessEnabled:true, payloadSigningEnabled: true, file:'index.html', bucket:'devops.me')
+           }
+        }
+    }
   }
 }
