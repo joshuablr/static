@@ -1,0 +1,8 @@
+# Install nginx
+- hosts: localhost
+  connection: local
+  become: true
+  become_user: root
+  roles:
+    - nginx  
+
