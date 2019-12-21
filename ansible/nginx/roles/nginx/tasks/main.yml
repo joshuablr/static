@@ -15,7 +15,7 @@
 #Generate the site Index file
 - name: Generate index.html
   template:
-    src: index.html
+    src: index.html.j2
     dest: /var/www/html/index.html
     owner: root
     group: root
